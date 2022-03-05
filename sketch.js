@@ -21,15 +21,15 @@ function setup() {
   world = engine.world;
   angleMode(DEGREES);
   var options ={
-    isStatic = true
+    isStatic: true
   }
 
   //criar corpo da base do jogador
-  playerBase = bodies.retangle(200, 350, 180, 150, options);
+  playerBase = Bodies.rectangle(200, 350, 180, 150, options);
   World.add(world, playerBase);
 
   //criar corpo do jogador
-  player = bodies.retangle(250,playerBase.position.y - 160, 50,180,options);
+  player = Bodies.rectangle(250,playerBase.position.y - 160, 50,180,options);
   World.add(world, player);
 
 
@@ -38,12 +38,12 @@ function setup() {
 
 function draw() {
   background(backgroundImg);
-  engine.update(engine);
+  
   //exibir a imagem do jogador usando a função image()
-  Image(playerimage,player.position.x, player.position.y, 50, 180);
+  image(playerimage,player.position.x, player.position.y, 50, 180);
 
   //exibir a imagem da base do jogador usando a função image()
-  Image(baseimage,playerBase.position.x, playerBase.position.y, 180, 150);
+  image(baseimage,playerBase.position.x, playerBase.position.y, 180, 150);
 
   Engine.update(engine);
 
